@@ -1,0 +1,27 @@
+{% from "bootstrap5/form.html" import render_form %}
+{% include "header.html" %}
+
+<div class="masthead">
+    <div class="container text-center position-relative">
+        <h1>LOGIN TO TASK MANAGER</h1>
+        <!--        Add a flash message here for users registering twice-->
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <p class="flash">{{message}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+        {{render_form(form)}}
+    </div>
+</div>
+
+<div class="container">
+  <footer class="py-3 my-4">
+
+    <p class="text-center text-body-secondary">Copyright &copy; Task Manager {{year}}</p>
+  </footer>
+</div>
+</body>
+</html>

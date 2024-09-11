@@ -1,0 +1,89 @@
+{% include "header.html" %}
+
+
+    <div class="masthead ">
+        <div class="container text-center position-relative ">
+            {% if current_user.is_authenticated: %}
+            <h1>Welcome {{current_user.name}}</h1>
+            {% else %}
+            <h1>Login To Add Tasks</h1>
+            {% endif %}
+
+            {% from "bootstrap5/form.html" import render_form %}
+
+            {{render_form(form)}}
+        </div>
+    </div>
+    <div class="container text-center">
+        <h2 class="pt-3">Open Tasks </h2>
+    </div>
+
+<div class="container px-5 text-center justify-content-center " id="open">
+
+    <table class="">
+      <tr>
+        <th>Task Name</th>
+        <th>Start Date</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+          <th>Actions</th>
+      </tr>
+
+        {% for task in tasks %}
+        {% if current_user.name == task.author_name%}
+      <tr>
+
+        <td>{{task.name}}</td>
+        <td>{{task.start_date}}</td>
+        <td>{{task.due_date}}</td>
+        <td>{{task.priority}}</td>
+          <td><a class="delete" href="{{url_for('delete_task', task_id=task.id)}}">Delete</a><a class="complete px-3" href="{{url_for('completed_task', task_id=task.id)}}">Task Complete</a></td>
+
+
+
+      </tr>
+         {% endif %}
+    {% endfor %}
+
+
+    </table>
+</div>
+
+
+<div class="container pt-5 text-center">
+    <h2 class="pt-3">Completed Tasks </h2>
+</div>
+
+<div class="container px-5 text-center justify-content-center " id="closed">
+
+    <table class="">
+      <tr>
+        <th>Task Name</th>
+        <th>Start Date</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+          <th>Actions</th>
+      </tr>
+        {% for task in completed_tasks %}
+        {% if current_user.name == task.author_name%}
+      <tr>
+        <td>{{task.name}}</td>
+        <td>{{task.start_date}}</td>
+        <td>{{task.due_date}}</td>
+        <td>{{task.priority}}</td>
+        <td><a class="delete" href="{{url_for('delete_completed_task', task_id= task.id)}}">Delete</a></td>
+      </tr>
+        {% endif %}
+      {% endfor %}
+
+    </table>
+</div>
+
+<div class="container">
+  <footer class="py-3 my-4">
+
+    <p class="text-center text-body-secondary">Copyright &copy; Task Manager {{year}}</p>
+  </footer>
+</div>
+</body>
+</html>

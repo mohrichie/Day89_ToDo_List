@@ -1,0 +1,93 @@
+h1, H2, H3, H4, H5, H6{
+    font-family: "Lora", sans-serif;
+    font-weight: bold;
+}
+p, span, btn, a, tr{
+    font-family: "Open+Sans", serif;
+}
+
+
+.btn{
+    background-color: #4B70F5;
+    border: none
+
+}
+
+.btn:hover{
+    background-color: #7BC9FF;
+
+}
+
+
+/* Flash Message Styling */
+.flash {
+  color: #ee6f57;
+  text-align: center;
+}
+
+h {text-align: center;}
+
+
+
+.masthead{
+    position: relative;
+  margin-bottom: 3rem;
+  padding-top: calc(1rem + 57px);
+  padding-bottom: 8rem;
+  background: no-repeat center center;
+  background-color: #6c757d;
+  background-size: cover;
+  background-attachment: scroll;
+  height: 520px;
+  width: 100%;
+    color: white;
+  text-align: center;
+
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: #EEEEEE;}
+
+#open{
+    border: 1px solid black;
+
+}
+
+#closed{
+    border: 1px solid black;
+}
+
+a.delete{
+    color: red;
+}
+
+.nav-item a{
+    color: black;
+    hover: red;
+
+}
+
+.nav-item a:hover{
+    color: #7BC9FF;
+
+}
+
+form{
+  width: 100%;
+
+}
+
+.forgot{
+    color: white;
+}
